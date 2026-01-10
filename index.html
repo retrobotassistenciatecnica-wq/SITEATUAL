@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Retrobot • Assistência Técnica em Computadores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <h1>RETROBOT</h1>
+  <p>Assistência técnica em computadores • Diagnóstico honesto • Sem enrolação</p>
+  <a href="https://wa.me/5511973559209" target="_blank" style="text-decoration:none; color:#25D366; font-weight:bold;">
+  💬 WhatsApp: +55 11 97355-9209
+</a>
+
+</header>
+
+<section class="servicos">
+
+  <div class="card">
+    <h3>🖥️ Montagem de PC Gamer</h3>
+    <p>Montagem correta, peças compatíveis e foco em desempenho e durabilidade.</p>
+    <span class="preco">A partir de <strong>R$ 149,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>🎮 Upgrade para Jogos</h3>
+    <p>Troca de placa de vídeo, fonte e ajustes para rodar jogos sem gargalo.</p>
+    <span class="preco">A partir de <strong>R$ 79,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>🧩 Troca de Peças</h3>
+    <p>HD, SSD, memória, fonte, placa-mãe e outros componentes.</p>
+    <span class="preco">A partir de <strong>R$ 79,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>🔥 Correção de Superaquecimento</h3>
+    <p>Troca de pasta térmica, limpeza profunda e ajuste de airflow.</p>
+    <span class="preco">A partir de <strong>R$ 99,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>🛡️ Remoção de Vírus e Malwares</h3>
+    <p>Limpeza completa do sistema sem perda de arquivos.</p>
+    <span class="preco">A partir de <strong>R$ 99,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>💾 Backup e Recuperação de Dados</h3>
+    <p>Cópia segura de arquivos importantes e tentativas de recuperação.</p>
+    <span class="preco">A partir de <strong>R$ 89,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>🧠 Consultoria Técnica</h3>
+    <p>Orientação para compra de peças, upgrades e escolha de computador.</p>
+    <span class="preco">A partir de <strong>R$ 49,90</strong></span>
+  </div>
+
+  <div class="card">
+    <h3>⚡ Otimização de Sistema</h3>
+    <p>Ajustes finos para inicialização rápida e melhor resposta do sistema.</p>
+    <span class="preco">A partir de <strong>R$ 69,90 </strong></span>
+  </div>
+
+</section>
+
+<div class="form-whatsapp">
+  <p>📩✨ ENTRE EM CONTATO CONOSCO!</p>
+  <input type="text" id="nome" placeholder="Seu nome" required>
+  <input type="text" id="computador" placeholder="PC ou Notebook?">
+  <textarea id="mensagem" placeholder="Descreva o problema"></textarea>
+  <button id="whatsappBtn">💬 Enviar pelo WhatsApp</button>
+  <p id="spamMsg" style="color:#f87171; font-size:0.9rem; display:none;">Aguarde 10 segundos antes de enviar novamente.</p>
+</div>
+
+<script>
+  
+const btn = document.getElementById('whatsappBtn');
+const spamMsg = document.getElementById('spamMsg');
+let canSend = true;
+
+btn.addEventListener('click', () => {
+  if (!canSend) {
+    spamMsg.style.display = 'block';
+    return;
+  }
+  
+  const nome = encodeURIComponent(document.getElementById('nome').value.trim());
+  const computador = encodeURIComponent(document.getElementById('computador').value.trim());
+  const mensagem = encodeURIComponent(document.getElementById('mensagem').value.trim());
+
+  if (!nome || !mensagem) {
+    alert("Por favor, preencha seu nome e a mensagem!");
+    return;
+  }
+
+  const texto = `Olá, meu nome é ${nome}.\nPC/Notebook: ${computador}\nMensagem: ${mensagem}`;
+  const numero = "5511973559209"; // Seu número com DDI + DDD
+  const url = `https://wa.me/${numero}?text=${texto}`;
+
+  window.open(url, "_blank");
+
+  // Bloqueia envio por 10 segundos
+  canSend = false;
+  spamMsg.style.display = 'none';
+  setTimeout(() => {
+    canSend = true;
+  }, 10000);
+});
+
+</script>
+
+<footer>
+  © Retrobot • Assistência Técnica - Suzano 🔧
+</footer>
+
+<canvas id="particles"></canvas>
+<script src="particles.js"></script>
+
+</body>
+</html>
