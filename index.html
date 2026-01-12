@@ -92,23 +92,26 @@ btn.addEventListener('click', () => {
     spamMsg.style.display = 'block';
     return;
   }
-  
-  const nome = encodeURIComponent(document.getElementById('nome').value.trim());
-  const computador = encodeURIComponent(document.getElementById('computador').value.trim());
-  const mensagem = encodeURIComponent(document.getElementById('mensagem').value.trim());
+
+  const nome = document.getElementById('nome').value.trim();
+  const computador = document.getElementById('computador').value.trim();
+  const mensagem = document.getElementById('mensagem').value.trim();
 
   if (!nome || !mensagem) {
     alert("Por favor, preencha seu nome e a mensagem!");
     return;
   }
 
-  const texto = `Olá, meu nome é ${nome}.\nPC/Notebook: ${computador}\nMensagem: ${mensagem}`;
-  const numero = "5511973559209"; // Seu número com DDI + DDD
-  const url = `https://wa.me/${numero}?text=${texto}`;
+  const texto = 
+`Olá, meu nome é ${nome}.
+PC/Notebook: ${computador}
+Mensagem: ${mensagem}`;
+
+  const numero = "5511973559209";
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
 
   window.open(url, "_blank");
 
-  // Bloqueia envio por 10 segundos
   canSend = false;
   spamMsg.style.display = 'none';
   setTimeout(() => {
@@ -127,3 +130,4 @@ btn.addEventListener('click', () => {
 
 </body>
 </html>
+
