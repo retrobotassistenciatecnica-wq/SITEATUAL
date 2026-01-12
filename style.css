@@ -1,195 +1,87 @@
-/* ===== RESET BÁSICO ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* =========================
+   RESPONSIVIDADE MOBILE
+   ========================= */
+
+/* Tablets e celulares */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+
+  header p {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+
+  /* Corrige aquele p global gigante */
+  p {
+    font-size: 1rem;
+    letter-spacing: normal;
+    text-align: center;
+  }
+
+  .servicos {
+    grid-template-columns: 1fr; /* 1 card por linha */
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .preco {
+    font-size: 0.95rem;
+  }
+
+  .form-whatsapp {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .form-whatsapp input,
+  .form-whatsapp textarea,
+  #whatsappBtn {
+    width: 100%;
+  }
+
+  footer {
+    font-size: 0.75rem;
+    margin-top: 30px;
+  }
 }
 
-/* ===== BODY ===== */
-body {
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #0a1a33, #020617);
-  color: #e5e7eb;
-  line-height: 1.6;
-  overflow-x: hidden;
+/* Celulares pequenos */
+@media (max-width: 480px) {
 
-  /* CENTRALIZAÇÃO VERTICAL E HORIZONTAL */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
+  header h1 {
+    font-size: 1.9rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  #whatsappBtn {
+    font-size: 1rem;
+    padding: 14px;
+  }
 }
-
-/* ===== HEADER ===== */
-header {
-  text-align: center;
-  padding: 30px 20px 15px;
-}
-
-header h1 {
-  font-size: 3rem;
-  letter-spacing: 5px;
-  color: #ffffff;
-  text-shadow:
-    0 0 8px rgba(255, 255, 255, 0.8),
-    0 0 25px rgba(59,130,246,0.6),
-    0 0 60px rgba(59,130,246,0.4);
-}
-
-p {
-  font-size: 2rem;
-  letter-spacing: 5px;
-  color: #ffffff;
-}
-
-
-header p {
-  margin-top: 10px;
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* ===== SERVIÇOS ===== */
-.servicos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 15px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.card {
-  background: rgba(2, 6, 23, 0.85);
-  border: 1px solid rgba(59,130,246,0.25);
-  border-radius: 14px;
-  padding: 20px;
-  text-align: center;
-  box-shadow:
-    0 0 15px rgba(59,130,246,0.15),
-    inset 0 0 10px rgba(59,130,246,0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card h3 {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-.card p {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-.preco {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.95rem;
-  color: #60a5fa;
-  font-weight: 600;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 35px rgba(59,130,246,0.5);
-}
-
-/* ===== CONTATO ===== */
-.contato {
-  padding: 20px; /* menos distância de cima */
-  max-width: 800px; /* maior largura do container */
-  width: 90%;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centraliza inputs */
-}
-
-/* ===== CAMPOS WHATSAPP ===== */
-.contato input,
-.contato textarea,
-.form-whatsapp input,
-.form-whatsapp textarea {
-  display: block;
-  width: 90%;      /* ocupa quase toda a largura do container */
-  min-height: 45px; /* altura menor para aproximar campos */
-  margin-bottom: 10px; /* menos espaço entre eles */
-  background: #020617;
-  color: #e5e7eb;
-  border: 1px solid #1e3a8a;
-  padding: 12px 16px;
-  border-radius: 12px; /* quadrado suave */
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-.contato input:focus,
-.contato textarea:focus,
-.form-whatsapp input:focus,
-.form-whatsapp textarea:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 10px rgba(59,130,246,0.7);
-  transition: 0.2s;
-}
-
-/* ===== FORM WHATSAPP ===== */
-.form-whatsapp {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;  /* elementos de cima para baixo */
-  gap: 8px;               /* menos espaço entre os campos */
-  align-items: center;     /* centraliza inputs */
-  width: 100%;
-  max-width: 750px;        /* formulário mais largo */
-}
-
-/* ===== BOTÃO WHATSAPP ===== */
-#whatsappBtn {
-  width: 90%; /* ocupa toda a largura do container */
-  padding: 16px;
-  font-weight: 800;
-  font-size: 1.1rem;
-  border-radius: 12px; /* mais quadrado */
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(59,130,246,0.6);
-  transition: 0.25s;
-}
-
-#whatsappBtn:hover {
-  box-shadow: 0 0 45px rgba(59,130,246,0.9);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  margin-top: 50px;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* ===== CANVAS PARTICULAS ===== */
-#particles {
-  pointer-events: none;
-  position: fixed;  /* fica fixo na tela */
-  top: 0;           /* começa do topo */
-  left: 0;          /* começa da esquerda */
-  width: 100%;      /* ocupa toda a largura */
-  height: 100%;     /* ocupa toda a altura */
-  z-index: 0;       /* atrás de todo o conteúdo */
-}
-
-/* ===== CONTEÚDO PRINCIPAL ===== */
-body > *:not(#particles) {
-  position: relative;
-  z-index: 1;  /* conteúdo acima das partículas */
-}
-
-
-/* =====*
